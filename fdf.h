@@ -6,117 +6,122 @@
 /*   By: bat <bat@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 11:25:22 by bat               #+#    #+#             */
-/*   Updated: 2023/06/12 14:49:49 by bat              ###   ########.fr       */
+/*   Updated: 2023/06/14 15:41:09 by bat              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
-# include "minilibx_macos/mlx.h"
-# include "printf/ft_printf.h"
+
 # include "libft/libft.h"
+# include "ft_printf.h"
+# include "minilibx/mlx.h"
+# include <math.h>
 # include <fcntl.h>
 # include <stdlib.h>
-# include <math.h>
 
-# define SHELL_RED "\033[0;31m"
-# define SHELL_YELLOW "\033[0;33m"
-# define SHELL_END_COLOR "\033[m"
-# define TEXT_COLOR 0x1A1A1D
-# define BACKGROUND 0x1A1A1D
-# define MENU_BACKGROUND 0x950740
-# define BLACK 0x000000
-# define WHITE 0xFFFFFF
-# define RED 0xFF0000
-
-# define WINDOW_WIDTH 1920
-# define WINDOW_HEIGHT 1080
-# define MLX_ERROR 1
-# define ZOOM_FACTOR 1.1
-# define TRANS_FACTOR_X 10
-# define TRANS_FACTOR_Y 5
+// Macro
+# define WIN_WIDTH 1920
+# define WIN_HEIGHT 1080
+# define PIXEL_BLACK 0x0
+# define PIXEL_RED 0xffff
+# define PIXEL_AZURE 0xf0ffff
+# define PIXEL_GREEN 0xff00
+# define PIXEL_GOLD 0xffd700
+# define PIXEL_PINK 0xffc0cb
+# define PIXEL_PURPLE 0xa020f0
+# define PIXEL_SEASHELL 0xfff5ee
+# define PIXEL_BISQUE 0xffe4c4
+# define PIXEL_MISTYROSE 0xffe4e1
+# define PIXEL_HONEY 0xf0fff0
+# define MOVE 25
 # define ALTITUDE 0.1
+# define ROTATE 0.1
+# define ZOOM 1
 
-typedef struct s_ivector {
-	int	x;
-	int	y;
-	int	z;
-}	t_ipoint;
+// Structures
 
-typedef struct s_fpoint {
-	float	x;
-	float	y;
-}	t_fpoint;
+typedef struct s_key
+{
+	int		horizontal;
+	int		vertical;
+	int		background;
+	float	altitude;
+}	t_key;
 
-typedef struct s_delta {
-	float	dx;
-	float	dy;
-}	t_delta;
+typedef struct s_point
+{
+	float	fy;
+	float	fx;
+}	t_point;
 
-typedef struct s_env {
-	void		*mlx;
-	void		*win;
-	void		*image;
-	char		*address;
-	char		*map_path;
-	int			**final_tab;
-	int			map_w;
-	int			map_h;
-	int			x;
-	int			y;
-	int			i;
-	int			c_x;
-	int			c_y;
-	int			bits_per_pixel;
-	int			line_length;
-	int			endian;
-	int			scale;
-	int			translation;
-	float		altitude;
-	float		zoom;
-	float		alpha;
-	t_ipoint	*initial_points;
-	t_fpoint	*final_points;
-	t_delta		*delta;
-}	t_env;
+typedef struct s_map
+{
+	char	*file;
+	int		width;
+	int		height;
+	int		**parse;
+}	t_map;
 
-/*colors.c: color start, color end and curent percent on the slope*/
-int		palette_one(double percent);
-int		palette_two(double percent, int z);
-int		palette_three(double percent);
-int		palette_four(double percent);
-int		palette_five(double percent);
+typedef struct s_img
+{
+	void	*mlx_img;
+	char	*addr;
+	int		bpp;
+	int		line_len;
+	int		endian;
+}	t_img;
 
-/*start.c:*/
-void	map_info(t_env *env, char *file);
-void	parse_map(t_env *env, char *file);
-int		env_init(t_env *env);
-int		render(t_env *env);
-void	check_format(t_env *env, char *file);
+typedef struct s_data {
+	float	alpha;
+	int		size;
+	char	**tab;
+	void	*mlx_ptr;
+	void	*win_ptr;
+	t_map	map;
+	t_img	img;
+	t_point	*t_point;
+	t_key	key;
+}	t_data;
 
-/*hooks.c*/
-void	h_management(t_env *env);
-int		key_handler(int key, t_env *env);
-int		close_win(t_env *env);
-int		mouse_handler(int mousecode, int x, int y, t_env *env);
+/* Main */
+void	ft_struct_value(t_data *data);
 
-/*fdf.c*/
-int		error(char *error_message);
-void	free_final_tab(t_env	*env);
+// Display error & free
+void	ft_display_error(char *str);
+void	ft_free_tab(char *tab[]);
+void	ft_free_parsing(t_data *data, int y);
+void	ft_free_map_parse(t_data *data);
+void	ft_free_mlx(t_data *data, int flag);
 
-/*points.c*/
-void	three_dim_point(t_env *env);
-void	two_dim_point(t_env *env);
+// Size & parsing
+void	ft_define_size(t_data *data);
+void	ft_parsing(t_data *data);
+void	ft_parsing_bis(t_data *data, char *line, int y);
 
-/*draw.c*/
-void	put_pixel(t_env *env, int x, int y, int color);
-void	draw_line(t_env *env, t_fpoint point0, t_fpoint point1);
-void	draw_background(t_env *env);
+// Convert
+void	ft_convert(t_data *data);
+void	ft_convert_fx(t_data *data, int x, int y, int i);
+void	ft_convert_fy(t_data *data, int x, int y, int i);
 
-/*limits.c*/
-void	limits(t_env *env);
-void	no_limit(t_env *env);
-void	right_limit(t_env *env);
-void	low_limit(t_env *env);
+// Graphic
+void	ft_initialization(t_data *data);
+void	ft_render(t_data *data);
+
+// Draw
+void	ft_put_pixel(t_data *data, int x, int y, int color);
+void	ft_draw_background(t_data *data);
+void	ft_connect(t_data *data);
+void	ft_line(t_data *data, int start, int end, int color);
+
+// Hook
+void	ft_instructions(t_data *data);
+void	ft_keyboard(int keycode, t_data *data);
+void	ft_shutdown(t_data *data);
+void	ft_mouse(int button, int x, int y, t_data *data);
+
+// Colors
+int		ft_colors(t_data *data, int x, int y);
+int		ft_color_background(t_data *data);
 
 #endif

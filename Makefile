@@ -6,52 +6,55 @@
 #    By: bat <bat@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/12 10:03:49 by bat               #+#    #+#              #
-#    Updated: 2023/06/12 15:51:44 by bat              ###   ########.fr        #
+#    Updated: 2023/06/14 14:16:16 by bat              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS	= fdf.c hooks.c start.c points.c draw.c limits.c train.c train2.c
+SRCS	=			fdf.c \
+					error_and_free.c \
+					parsing.c \
+					convert.c \
+					graphic.c \
+					draw.c \
+					hooks.c \
+					colors.c \
 
-OBJS	:= $(SRCS:%.c=%.o)
+OBJS	=			$(SRCS:%.c=%.o)
 
-NAME	= fdf
+CC		=			gcc
 
-CC		= gcc -g
-RM		= rm -f
+RM		=			rm -f
 
-CFLAGS 	= -Wall -Wextra -Werror #-fsanitize=address
+CFLAGS	=			-Wall -Wextra -Werror -g -w
 
-all:		${NAME}
+NAME	=			fdf
 
-%.o:	%.c
-		${CC} ${CFLAGS} -Ilibft -Iprintf -I./minilibx -c $? -o $@
-#		$(CC) -Wall -Wextra -Werror -Imlx -c $< -o $@
+all: 				$(NAME)
 
-${NAME}:		${OBJS}
-		@make -C libft
-		@make -C printf
-		@make -C minilibx
-		${CC} ${CFLAGS} $^ -Llibft -lft -Lprintf -lftprintf -L./minilibx -lmlx -framework OpenGL -framework AppKit -o ${NAME}
-#		$(CC) $(OBJ) -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
+%.o: 				%.c
+					${CC} ${CFLAGS} -Ilibft -I./minilibx -c $? -o $@
 
-libft:
-		make -C libft
+${NAME}:			${OBJS}
+					@make -C libft
+					@make -C minilibx
+					${CC} ${CFLAGS} $^ -Llibft -lft -L./minilibx -lmlx -framework OpenGL -framework AppKit -o ${NAME}
 
-printf:
-		make -C printf
+libft/libft.a:
+					@make -C libft
 
-minilibx:
-		make -C minilibx
+minilibx/libmlx.a:
+					@make -C minilibx
 
 clean:
-			make clean -C libft
-			make clean -C printf
-			make clean -C minilibx
-			${RM} ${OBJS}
+					${RM} $(OBJS)
+					@make -C libft clean
+					@make -C minilibx clean
 
-fclean:		clean
-			${RM} ${NAME}
+fclean:				clean
+					${RM} fdf libft/libft.a
+					@make -C libft fclean
+					@make -C minilibx fclean
 
-re:			fclean all
+re: 				fclean all
 
-.PHONY:		libft printf
+.PHONY:				all  clean fclean re
