@@ -6,9 +6,15 @@
 #    By: bat <bat@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/12 10:03:49 by bat               #+#    #+#              #
-#    Updated: 2023/06/14 14:16:16 by bat              ###   ########.fr        #
+#    Updated: 2023/07/19 18:12:18 by bat              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+NAME 	=	fdf
+
+CC 		= 	gcc
+
+CFLAGS	=			-Wall -Wextra -Werror #-g -fsanitize=address
 
 SRCS	=			fdf.c \
 					error_and_free.c \
@@ -19,41 +25,32 @@ SRCS	=			fdf.c \
 					hooks.c \
 					colors.c \
 
-OBJS	=			$(SRCS:%.c=%.o)
+INCLUDES = 	includes/
 
-CC		=			gcc
+INCLUDES_PATH	=	/fdf/includes
 
-RM		=			rm -f
+OBJS		=	$(SRCS:.c=.o)
 
-CFLAGS	=			-Wall -Wextra -Werror -g -w
+MLX		= 	-L ./minilibx -l mlx -framework OpenGL -framework AppKit
 
-NAME	=			fdf
+lib:
+	make -C libft/
+	make -C minilibx/
+	make -C srcs/
 
-all: 				$(NAME)
+all:	lib $(NAME)
 
-%.o: 				%.c
-					${CC} ${CFLAGS} -Ilibft -I./minilibx -c $? -o $@
+$(NAME):	$(OBJS)
+	$(CC) $(CFLAGS) -o $(NAME) libft/libft.a $(OBJS) -I $(INCLUDES) $(MLX)
 
-${NAME}:			${OBJS}
-					@make -C libft
-					@make -C minilibx
-					${CC} ${CFLAGS} $^ -Llibft -lft -L./minilibx -lmlx -framework OpenGL -framework AppKit -o ${NAME}
-
-libft/libft.a:
-					@make -C libft
-
-minilibx/libmlx.a:
-					@make -C minilibx
+%.o: %.c
+	$(CC) $(CFLAGS) -o $@ -c $< -I $(INCLUDES)
 
 clean:
-					${RM} $(OBJS)
-					@make -C libft clean
-					@make -C minilibx clean
+	rm -f $(OBJS) && make -C libft/ clean
 
-fclean:				clean
-					${RM} fdf libft/libft.a
-					@make -C libft fclean
-					@make -C minilibx fclean
+fclean:		clean
+	rm -f $(NAME) && make -C libft/ fclean
 
 re: 				fclean all
 
