@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bat <bat@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: bbessard <bbessard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 10:05:23 by bat               #+#    #+#             */
-/*   Updated: 2023/07/19 11:28:40 by bat              ###   ########.fr       */
+/*   Updated: 2023/08/14 18:38:59 by bbessard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "../includes/fdf.h"
 
-/*	Initialise values of variables contained in structures */
+/*	Initialize variables values contained in structures */
 void	ft_struct_value(t_data *data)
 {
 	data->map.width = 0;

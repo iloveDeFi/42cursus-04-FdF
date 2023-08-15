@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bat <bat@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: bbessard <bbessard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 11:25:15 by bat               #+#    #+#             */
-/*   Updated: 2023/06/19 10:44:10 by bat              ###   ########.fr       */
+/*   Updated: 2023/08/14 18:43:02 by bbessard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "../includes/fdf.h"
 
 /*	Draw pixel by pixel with a formula to get the right position. */
 void	ft_put_pixel(t_data *data, int x, int y, int color)

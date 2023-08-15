@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   graphic.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bat <bat@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: bbessard <bbessard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:05:06 by bat               #+#    #+#             */
-/*   Updated: 2023/06/19 10:42:39 by bat              ###   ########.fr       */
+/*   Updated: 2023/08/15 11:15:41 by bbessard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "../includes/fdf.h"
 
 /*	Initializes the various graphic elements */
 void	ft_initialization(t_data *data)

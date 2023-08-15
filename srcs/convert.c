@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   convert.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bat <bat@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: bbessard <bbessard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:05:19 by bat               #+#    #+#             */
-/*   Updated: 2023/06/19 10:44:22 by bat              ###   ########.fr       */
+/*   Updated: 2023/08/14 18:42:59 by bbessard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "../includes/fdf.h"
 
 /*	Math formula to convert 3D points to 2D points to draw a perspective map.*/
 void	ft_convert_fx(t_data *data, int x, int y, int i)

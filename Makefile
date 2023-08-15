@@ -3,55 +3,52 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: bat <bat@student.42.fr>                    +#+  +:+       +#+         #
+#    By: bbessard <bbessard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/12 10:03:49 by bat               #+#    #+#              #
-#    Updated: 2023/07/19 18:12:18 by bat              ###   ########.fr        #
+#    Updated: 2023/08/15 12:00:44 by bbessard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME 	=	fdf
+NAME    =   fdf
 
-CC 		= 	gcc
+CC      =   gcc
 
-CFLAGS	=			-Wall -Wextra -Werror #-g -fsanitize=address
+CFLAGS  =   -Wall -Wextra -Werror -O3 -g -fsanitize=address
 
-SRCS	=			fdf.c \
-					error_and_free.c \
-					parsing.c \
-					convert.c \
-					graphic.c \
-					draw.c \
-					hooks.c \
-					colors.c \
+SRCS := $(wildcard srcs/*.c)
 
-INCLUDES = 	includes/
+INCLUDES =   includes/
 
-INCLUDES_PATH	=	/fdf/includes
+OBJS    =   $(SRCS:srcs/%.c=%.o)
 
-OBJS		=	$(SRCS:.c=.o)
+RM      =   rm -f
 
-MLX		= 	-L ./minilibx -l mlx -framework OpenGL -framework AppKit
+MLX     =   -L ./minilibx_macos -l mlx -framework OpenGL -framework AppKit
 
 lib:
 	make -C libft/
-	make -C minilibx/
-	make -C srcs/
+	make -C minilibx_macos/
 
-all:	lib $(NAME)
+all:    lib $(NAME)
 
-$(NAME):	$(OBJS)
-	$(CC) $(CFLAGS) -o $(NAME) libft/libft.a $(OBJS) -I $(INCLUDES) $(MLX)
+$(NAME):    $(OBJS)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) -I $(INCLUDES) -Llibft -lft $(MLX)
 
-%.o: %.c
+%.o: srcs/%.c
 	$(CC) $(CFLAGS) -o $@ -c $< -I $(INCLUDES)
 
 clean:
-	rm -f $(OBJS) && make -C libft/ clean
+	${RM} $(OBJS)
+	@make -C libft clean
+	@make -C minilibx_macos clean
 
-fclean:		clean
-	rm -f $(NAME) && make -C libft/ fclean
+fclean:     clean
+	$(RM) $(NAME)
+	${RM} fdf libft/libft.a
+	@make -C libft fclean
+	@make -C minilibx_macos fclean
 
-re: 				fclean all
+re:             fclean all
 
-.PHONY:				all  clean fclean re
+.PHONY:             all  clean fclean re

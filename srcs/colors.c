@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   colors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bat <bat@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: bbessard <bbessard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:05:22 by bat               #+#    #+#             */
-/*   Updated: 2023/06/19 10:44:33 by bat              ###   ########.fr       */
+/*   Updated: 2023/08/14 18:42:40 by bbessard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "../includes/fdf.h"
 
 /*	Function used to define the colors of the lines. */
 int	ft_colors(t_data *data, int x, int y)
@@ -55,4 +55,5 @@ int	ft_color_background(t_data *data)
 		data->key.background = 4;
 		return (PIXEL_HONEY);
 	}
+	return (0);
 }

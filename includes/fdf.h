@@ -3,23 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bat <bat@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: bbessard <bbessard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 11:25:22 by bat               #+#    #+#             */
-/*   Updated: 2023/07/18 09:12:59 by bat              ###   ########.fr       */
+/*   Updated: 2023/08/14 18:41:28 by bbessard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
 
-# include "libft/libft.h"
-# include "minilibx/mlx.h"
-#include "printf/ft_printf.h"
-#include "get_next_line/get_next_line.h"
+# include "../libft/libft.h"
+# include "../minilibx/mlx.h"
 # include <math.h>
 # include <fcntl.h>
-
+ 
 // Macro
 # define WIN_WIDTH 1920
 # define WIN_HEIGHT 1080

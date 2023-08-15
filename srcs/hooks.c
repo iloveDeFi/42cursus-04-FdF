@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   hooks.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bat <bat@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: bbessard <bbessard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 11:24:48 by bat               #+#    #+#             */
-/*   Updated: 2023/06/19 10:42:52 by bat              ###   ########.fr       */
+/*   Updated: 2023/08/14 18:43:10 by bbessard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "../includes/fdf.h"
 
 /*	Function used when the window is closed. */
 void	ft_shutdown(t_data *data)

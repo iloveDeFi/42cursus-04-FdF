@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   error_and_free.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bat <bat@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: bbessard <bbessard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:05:33 by bat               #+#    #+#             */
-/*   Updated: 2023/06/19 10:43:52 by bat              ###   ########.fr       */
+/*   Updated: 2023/08/14 18:43:05 by bbessard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "../includes/fdf.h"
 
 /*	Displays error messages on the error output*/
 void	ft_display_error(char *str)
