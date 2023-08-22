@@ -6,11 +6,11 @@
 /*   By: bbessard <bbessard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:05:33 by bat               #+#    #+#             */
-/*   Updated: 2023/08/14 18:43:05 by bbessard         ###   ########.fr       */
+/*   Updated: 2023/08/22 12:06:16 by bbessard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fdf.h"
+#include "fdf.h"
 
 /*	Displays error messages on the error output*/
 void	ft_display_error(char *str)

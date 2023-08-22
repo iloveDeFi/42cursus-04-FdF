@@ -6,7 +6,7 @@
 /*   By: bbessard <bbessard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 11:25:22 by bat               #+#    #+#             */
-/*   Updated: 2023/08/14 18:41:28 by bbessard         ###   ########.fr       */
+/*   Updated: 2023/08/18 13:49:55 by bbessard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ void	ft_convert_fy(t_data *data, int x, int y, int i);
 
 // Graphic
 void	ft_initialization(t_data *data);
-void	ft_render(t_data *data);
+int	ft_render(t_data *data);
 
 // Draw
 void	ft_put_pixel(t_data *data, int x, int y, int color);
@@ -114,9 +114,9 @@ void	ft_line(t_data *data, int start, int end, int color);
 
 // Hook
 void	ft_instructions(t_data *data);
-void	ft_keyboard(int keycode, t_data *data);
-void	ft_shutdown(t_data *data);
-void	ft_mouse(int button, int x, int y, t_data *data);
+int	ft_keyboard(int keycode, t_data *data);
+int	ft_shutdown(t_data *data);
+int	ft_mouse(int button, int x, int y, t_data *data);
 
 // Colors
 int		ft_colors(t_data *data, int x, int y);

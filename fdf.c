@@ -6,11 +6,11 @@
 /*   By: bbessard <bbessard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 10:05:23 by bat               #+#    #+#             */
-/*   Updated: 2023/08/14 18:38:59 by bbessard         ###   ########.fr       */
+/*   Updated: 2023/08/22 12:06:14 by bbessard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fdf.h"
+#include "fdf.h"
 
 /*	Initialize variables values contained in structures */
 void	ft_struct_value(t_data *data)

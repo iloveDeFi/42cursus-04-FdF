@@ -6,11 +6,11 @@
 /*   By: bbessard <bbessard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:05:06 by bat               #+#    #+#             */
-/*   Updated: 2023/08/15 11:15:41 by bbessard         ###   ########.fr       */
+/*   Updated: 2023/08/22 12:06:11 by bbessard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fdf.h"
+#include "fdf.h"
 
 /*	Initializes the various graphic elements */
 void	ft_initialization(t_data *data)
@@ -37,11 +37,12 @@ void	ft_initialization(t_data *data)
 }
 
 /*	Function called in the mlx_loop_hook */
-void	ft_render(t_data *data)
+int	ft_render(t_data *data)
 {
 	ft_draw_background(data);
 	ft_convert(data);
 	ft_connect(data);
 	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, \
 						data->img.mlx_img, 0, 0);
+	return (0);
 }

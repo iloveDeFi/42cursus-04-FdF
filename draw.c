@@ -6,11 +6,11 @@
 /*   By: bbessard <bbessard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 11:25:15 by bat               #+#    #+#             */
-/*   Updated: 2023/08/14 18:43:02 by bbessard         ###   ########.fr       */
+/*   Updated: 2023/08/22 12:06:19 by bbessard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fdf.h"
+#include "fdf.h"
 
 /*	Draw pixel by pixel with a formula to get the right position. */
 void	ft_put_pixel(t_data *data, int x, int y, int color)

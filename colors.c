@@ -6,11 +6,11 @@
 /*   By: bbessard <bbessard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:05:22 by bat               #+#    #+#             */
-/*   Updated: 2023/08/14 18:42:40 by bbessard         ###   ########.fr       */
+/*   Updated: 2023/08/22 12:06:23 by bbessard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fdf.h"
+#include "fdf.h"
 
 /*	Function used to define the colors of the lines. */
 int	ft_colors(t_data *data, int x, int y)

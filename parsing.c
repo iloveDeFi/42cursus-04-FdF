@@ -6,11 +6,11 @@
 /*   By: bbessard <bbessard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 15:11:29 by bat               #+#    #+#             */
-/*   Updated: 2023/08/14 18:38:57 by bbessard         ###   ########.fr       */
+/*   Updated: 2023/08/22 12:06:07 by bbessard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fdf.h"
+#include "fdf.h"
 
 /*	Define the size of the map (height / width).
 	Check the error cases */
@@ -35,7 +35,7 @@ void	ft_define_size(t_data *data)
 		data->map.width++;
 	ft_free_tab(data->tab);
 	while (line)
-	{
+	{                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
 		data->map.height++;
 		free(line);
 		line = get_next_line(fd);

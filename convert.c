@@ -6,11 +6,11 @@
 /*   By: bbessard <bbessard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:05:19 by bat               #+#    #+#             */
-/*   Updated: 2023/08/14 18:42:59 by bbessard         ###   ########.fr       */
+/*   Updated: 2023/08/22 12:06:21 by bbessard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fdf.h"
+#include "fdf.h"
 
 /*	Math formula to convert 3D points to 2D points to draw a perspective map.*/
 void	ft_convert_fx(t_data *data, int x, int y, int i)
