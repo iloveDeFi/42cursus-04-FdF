@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: bbessard <bbessard@student.42.fr>          +#+  +:+       +#+         #
+#    By: bat <bat@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/12 10:03:49 by bat               #+#    #+#              #
-#    Updated: 2023/08/22 12:27:28 by bbessard         ###   ########.fr        #
+#    Updated: 2023/09/07 22:44:17 by bat              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ CC		=			gcc
 
 RM		=			rm -f
 
-CFLAGS	=			-Wall -Wextra -Werror -g -w
+CFLAGS	=			-Wall -Wextra -Werror -g -w -Iincludes
 
 NAME	=			fdf
 
