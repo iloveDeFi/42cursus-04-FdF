@@ -6,7 +6,7 @@
 /*   By: bat <bat@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 11:25:22 by bat               #+#    #+#             */
-/*   Updated: 2023/09/07 14:51:00 by bat              ###   ########.fr       */
+/*   Updated: 2023/09/07 23:33:03 by bat              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,17 @@
 // Macro
 # define WIN_WIDTH 1920
 # define WIN_HEIGHT 1080
-# define PIXEL_BLACK 0x0
-# define PIXEL_RED 0xffff
-# define PIXEL_AZURE 0xf0ffff
-# define PIXEL_GREEN 0xff00
-# define PIXEL_GOLD 0xffd700
-# define PIXEL_PINK 0xffc0cb
-# define PIXEL_PURPLE 0xa020f0
-# define PIXEL_SEASHELL 0xfff5ee
-# define PIXEL_BISQUE 0xffe4c4
-# define PIXEL_MISTYROSE 0xffe4e1
-# define PIXEL_HONEY 0xf0fff0
+# define PIXEL_DEEPPINK4 0x8b0a50
+# define PIXEL_ALICEBLUE 0xf0f8ff
+# define PIXEL_LAVENDERBLUSH 0xfff0f5
+# define PIXEL_BLUEVIOLET 0x8a2be2
+# define PIXEL_KHAKI4 0x8b864e
+# define PIXEL_BURLYWOOD4 0x8b7355
+# define PIXEL_ROSYBROWN4 0x8b6969
+# define PIXEL_DARKORCHID 0xbf3eff
+# define PIXEL_DARKGREY 0xa9a9a9
+# define PIXEL_DEEPPINK1 0xff1493
+# define PIXEL_FORESTGREEN 0x228b22
 # define MOVE 25
 # define ALTITUDE 0.1
 # define ROTATE 0.1
