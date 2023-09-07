@@ -6,7 +6,7 @@
 /*   By: bat <bat@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:05:06 by bat               #+#    #+#             */
-/*   Updated: 2023/09/07 14:49:24 by bat              ###   ########.fr       */
+/*   Updated: 2023/09/07 22:43:06 by bat              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_initialization(t_data *data)
 	if (data->mlx_ptr == NULL)
 		ft_free_mlx(data, 1);
 	data->win_ptr = mlx_new_window(data->mlx_ptr, \
-							WIN_WIDTH, WIN_HEIGHT, "Fil de fer mon ami! \
+							WIN_WIDTH, WIN_HEIGHT, "You shall not pass! \
 							MOVE = awsd \
 							| ZOOM = zx \
 							| ROTATE = rt \
