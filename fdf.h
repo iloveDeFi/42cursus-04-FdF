@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bbessard <bbessard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bat <bat@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 11:25:22 by bat               #+#    #+#             */
-/*   Updated: 2023/08/18 13:49:55 by bbessard         ###   ########.fr       */
+/*   Updated: 2023/09/07 14:51:00 by bat              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@
 # define ZOOM 1
 
 // Structures
-
 typedef struct s_key
 {
 	int		horizontal;
@@ -87,7 +86,7 @@ void	ft_struct_value(t_data *data);
 
 // Display error & free
 void	ft_display_error(char *str);
-void	ft_free_tab(char *tab[]);
+void	ft_free_tab_from_split(char *tab[]);
 void	ft_free_parsing(t_data *data, int y);
 void	ft_free_map_parse(t_data *data);
 void	ft_free_mlx(t_data *data, int flag);
@@ -109,8 +108,8 @@ int	ft_render(t_data *data);
 // Draw
 void	ft_put_pixel(t_data *data, int x, int y, int color);
 void	ft_draw_background(t_data *data);
-void	ft_connect(t_data *data);
-void	ft_line(t_data *data, int start, int end, int color);
+void	ft_define_points_to_connect(t_data *data);
+void	ft_trace_line(t_data *data, int start, int end, int color);
 
 // Hook
 void	ft_instructions(t_data *data);
@@ -119,7 +118,7 @@ int	ft_shutdown(t_data *data);
 int	ft_mouse(int button, int x, int y, t_data *data);
 
 // Colors
-int		ft_colors(t_data *data, int x, int y);
+int		ft_colors_lines(t_data *data, int x, int y);
 int		ft_color_background(t_data *data);
 
 #endif

@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   hooks.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bbessard <bbessard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bat <bat@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 11:24:48 by bat               #+#    #+#             */
-/*   Updated: 2023/08/22 12:06:09 by bbessard         ###   ########.fr       */
+/*   Updated: 2023/09/07 14:49:43 by bat              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-/*	Function used when the window is closed. */
 int	ft_shutdown(t_data *data)
 {
 	mlx_destroy_window(data->mlx_ptr, data->win_ptr);
@@ -21,7 +20,6 @@ int	ft_shutdown(t_data *data)
 	return (0);
 }
 
-/*	Different actions that can be performed with the keyboard. */
 int	ft_keyboard(int keycode, t_data *data)
 {
 	if (keycode == 53)
@@ -49,7 +47,6 @@ int	ft_keyboard(int keycode, t_data *data)
 	return (0);
 }
 
-/*	Different actions that can be performed with the mouse. */
 int	ft_mouse(int button, int x, int y, t_data *data)
 {
 	(void) x;
@@ -65,7 +62,6 @@ int	ft_mouse(int button, int x, int y, t_data *data)
 	return (0);
 	}
 
-/*	The various possible actions described above. */
 void	ft_instructions(t_data *data)
 {
 	mlx_key_hook(data->win_ptr, ft_keyboard, data);

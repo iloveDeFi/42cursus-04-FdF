@@ -3,24 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   error_and_free.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bbessard <bbessard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bat <bat@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:05:33 by bat               #+#    #+#             */
-/*   Updated: 2023/08/22 12:06:16 by bbessard         ###   ########.fr       */
+/*   Updated: 2023/09/07 14:48:34 by bat              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-/*	Displays error messages on the error output*/
 void	ft_display_error(char *str)
 {
 	ft_putstr_fd(str, 2);
 	exit(1);
 }
 
-/*	Free the *tab[] resulting from the fonction split */
-void	ft_free_tab(char *tab[])
+void	ft_free_tab_from_split(char *tab[])
 {
 	int	i;
 
@@ -30,8 +28,6 @@ void	ft_free_tab(char *tab[])
 	free(tab);
 }
 
-/*	Free the parsed map and display an error message.
-	Only if there is an error during the parsing */
 void	ft_free_parsing(t_data *data, int y)
 {
 	while (y >= 0)
@@ -43,7 +39,6 @@ void	ft_free_parsing(t_data *data, int y)
 	ft_display_error("Error during the parsing.\n");
 }
 
-/*	Free the parsed map when shutdown or if there is an error */
 void	ft_free_map_parse(t_data *data)
 {
 	int	y;
@@ -57,8 +52,6 @@ void	ft_free_map_parse(t_data *data)
 	free(data->map.parse);
 }
 
-/*	Free everything that needs to be free
-	in case of an error with the minilibx */
 void	ft_free_mlx(t_data *data, int flag)
 {
 	if (flag == 1)

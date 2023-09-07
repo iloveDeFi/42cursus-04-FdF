@@ -3,17 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   colors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bbessard <bbessard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bat <bat@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:05:22 by bat               #+#    #+#             */
-/*   Updated: 2023/08/22 12:43:57 by bbessard         ###   ########.fr       */
+/*   Updated: 2023/09/07 14:06:13 by bat              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-/*	Function used to define the colors of the lines. */
-int	ft_colors(t_data *data, int x, int y)
+int	ft_colors_lines(t_data *data, int x, int y)
 {
 	int	color;
 
@@ -32,7 +31,6 @@ int	ft_colors(t_data *data, int x, int y)
 	return (color);
 }
 
-/*	Function used to define the colors of the background. */
 int	ft_color_background(t_data *data)
 {
 	if (data->key.background == 0)

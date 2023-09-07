@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   graphic.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bbessard <bbessard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bat <bat@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:05:06 by bat               #+#    #+#             */
-/*   Updated: 2023/08/22 12:06:11 by bbessard         ###   ########.fr       */
+/*   Updated: 2023/09/07 14:49:24 by bat              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-/*	Initializes the various graphic elements */
 void	ft_initialization(t_data *data)
 {
 	data->mlx_ptr = mlx_init();
@@ -36,12 +35,11 @@ void	ft_initialization(t_data *data)
 	mlx_loop(data->mlx_ptr);
 }
 
-/*	Function called in the mlx_loop_hook */
 int	ft_render(t_data *data)
 {
 	ft_draw_background(data);
 	ft_convert(data);
-	ft_connect(data);
+	ft_define_points_to_connect(data);
 	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, \
 						data->img.mlx_img, 0, 0);
 	return (0);

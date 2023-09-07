@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bbessard <bbessard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bat <bat@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 10:05:23 by bat               #+#    #+#             */
-/*   Updated: 2023/08/22 12:06:14 by bbessard         ###   ########.fr       */
+/*   Updated: 2023/09/07 14:48:55 by bat              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-/*	Initialize variables values contained in structures */
 void	ft_struct_value(t_data *data)
 {
 	data->map.width = 0;
@@ -25,7 +24,6 @@ void	ft_struct_value(t_data *data)
 	data->key.background = 0;
 }
 
-/*	Main deliberately minimalist */
 int	main(int argc, char *argv[])
 {
 	t_data	data;

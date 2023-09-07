@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bbessard <bbessard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bat <bat@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 11:25:15 by bat               #+#    #+#             */
-/*   Updated: 2023/08/22 12:06:19 by bbessard         ###   ########.fr       */
+/*   Updated: 2023/09/07 14:44:17 by bat              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-/*	Draw pixel by pixel with a formula to get the right position. */
 void	ft_put_pixel(t_data *data, int x, int y, int color)
 {
 	char	*pxl;
@@ -25,7 +24,6 @@ void	ft_put_pixel(t_data *data, int x, int y, int color)
 	}
 }
 
-/*	Draw the background. The color is defined by an other function. */
 void	ft_draw_background(t_data *data)
 {
 	int	width;
@@ -42,8 +40,7 @@ void	ft_draw_background(t_data *data)
 	}
 }
 
-/*	Function used to draw between two points. */
-void	ft_line(t_data *data, int start, int end, int color)
+void	ft_trace_line(t_data *data, int start, int end, int color)
 {
 	float	delta_x;
 	float	delta_y;
@@ -68,8 +65,7 @@ void	ft_line(t_data *data, int start, int end, int color)
 	}
 }
 
-/*	Function used to define which points need to be connected. */
-void	ft_connect(t_data *data)
+void	ft_define_points_to_connect(t_data *data)
 {
 	int	i;
 	int	h;
@@ -84,13 +80,13 @@ void	ft_connect(t_data *data)
 		{
 			if (h < data->map.height - 1 && w < data->map.width - 1)
 			{
-				ft_line(data, i, i + 1, ft_colors(data, w, h));
-				ft_line(data, i, i + data->map.width, ft_colors(data, w, h));
+				ft_trace_line(data, i, i + 1, ft_colors_lines(data, w, h));
+				ft_trace_line(data, i, i + data->map.width, ft_colors_lines(data, w, h));
 			}
 			else if (h == data->map.height - 1 && w < data->map.width - 1)
-				ft_line(data, i, i + 1, ft_colors(data, w, h));
+				ft_trace_line(data, i, i + 1, ft_colors_lines(data, w, h));
 			else if (h < data->map.height - 1 && w == data->map.width - 1)
-				ft_line(data, i, i + data->map.width, ft_colors(data, w, h));
+				ft_trace_line(data, i, i + data->map.width, ft_colors_lines(data, w, h));
 			i++;
 		}
 	}

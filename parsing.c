@@ -3,17 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bbessard <bbessard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bat <bat@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 15:11:29 by bat               #+#    #+#             */
-/*   Updated: 2023/08/22 12:06:07 by bbessard         ###   ########.fr       */
+/*   Updated: 2023/09/07 14:50:19 by bat              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-/*	Define the size of the map (height / width).
-	Check the error cases */
 void	ft_define_size(t_data *data)
 {
 	int		fd;
@@ -33,7 +31,7 @@ void	ft_define_size(t_data *data)
 	}
 	while (data->tab[data->map.width])
 		data->map.width++;
-	ft_free_tab(data->tab);
+	ft_free_tab_from_split(data->tab);
 	while (line)
 	{                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
 		data->map.height++;
@@ -58,7 +56,7 @@ void	ft_parsing_bis(t_data *data, char *line, int y)
 	}
 	while (++x < data->map.width)
 		data->map.parse[y][x] = ft_atoi(data->tab[x]);
-	ft_free_tab(data->tab);
+	ft_free_tab_from_split(data->tab);
 	free(line);
 }
 
