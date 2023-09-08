@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bat <bat@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: bbessard <bbessard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 15:11:29 by bat               #+#    #+#             */
-/*   Updated: 2023/09/07 14:50:19 by bat              ###   ########.fr       */
+/*   Updated: 2023/09/08 11:20:10 by bbessard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	ft_define_size(t_data *data)
 		data->map.width++;
 	ft_free_tab_from_split(data->tab);
 	while (line)
-	{                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+	{
 		data->map.height++;
 		free(line);
 		line = get_next_line(fd);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bat <bat@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: bbessard <bbessard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 11:25:15 by bat               #+#    #+#             */
-/*   Updated: 2023/09/07 14:44:17 by bat              ###   ########.fr       */
+/*   Updated: 2023/09/08 11:25:42 by bbessard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,27 +67,21 @@ void	ft_trace_line(t_data *data, int start, int end, int color)
 
 void	ft_define_points_to_connect(t_data *data)
 {
-	int	i;
 	int	h;
 	int	w;
 
-	i = 0;
 	h = -1;
 	while (++h < data->map.height)
 	{
 		w = -1;
 		while (++w < data->map.width)
 		{
-			if (h < data->map.height - 1 && w < data->map.width - 1)
-			{
-				ft_trace_line(data, i, i + 1, ft_colors_lines(data, w, h));
-				ft_trace_line(data, i, i + data->map.width, ft_colors_lines(data, w, h));
-			}
-			else if (h == data->map.height - 1 && w < data->map.width - 1)
-				ft_trace_line(data, i, i + 1, ft_colors_lines(data, w, h));
-			else if (h < data->map.height - 1 && w == data->map.width - 1)
-				ft_trace_line(data, i, i + data->map.width, ft_colors_lines(data, w, h));
-			i++;
+			if (h < data->map.height - 1)
+				ft_trace_line(data, h * data->map.width + w,
+					(h + 1) * data->map.width + w, ft_colors_lines(data, w, h));
+			if (w < data->map.width - 1)
+				ft_trace_line(data, h * data->map.width + w,
+					h * data->map.width + w + 1, ft_colors_lines(data, w, h));
 		}
 	}
 	free(data->t_point);
