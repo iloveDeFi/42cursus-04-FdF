@@ -6,7 +6,7 @@
 /*   By: bat <bat@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 11:24:48 by bat               #+#    #+#             */
-/*   Updated: 2023/09/07 14:49:43 by bat              ###   ########.fr       */
+/*   Updated: 2023/09/08 10:17:11 by bat              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	ft_mouse(int button, int x, int y, t_data *data)
 	else if (button == 2)
 		data->key.background -= 1;
 	return (0);
-	}
+}
 
 void	ft_instructions(t_data *data)
 {

@@ -6,7 +6,7 @@
 /*   By: bat <bat@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 11:25:22 by bat               #+#    #+#             */
-/*   Updated: 2023/09/07 23:33:03 by bat              ###   ########.fr       */
+/*   Updated: 2023/09/08 10:47:52 by bat              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ typedef struct s_data {
 }	t_data;
 
 /* Main */
-void	ft_struct_value(t_data *data);
+void	ft_initial_values(t_data *data);
 
 // Display error & free
 void	ft_display_error(char *str);

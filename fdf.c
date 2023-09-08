@@ -6,13 +6,13 @@
 /*   By: bat <bat@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 10:05:23 by bat               #+#    #+#             */
-/*   Updated: 2023/09/07 14:48:55 by bat              ###   ########.fr       */
+/*   Updated: 2023/09/08 10:48:20 by bat              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	ft_struct_value(t_data *data)
+void	ft_initial_values(t_data *data)
 {
 	data->map.width = 0;
 	data->map.height = 0;
@@ -31,7 +31,7 @@ int	main(int argc, char *argv[])
 	data.map.file = argv[1];
 	if (argc != 2)
 		ft_display_error("Only one argument expected (correct map path).\n");
-	ft_struct_value(&data);
+	ft_initial_values(&data);
 	ft_define_size(&data);
 	ft_parsing(&data);
 	ft_initialization(&data);
